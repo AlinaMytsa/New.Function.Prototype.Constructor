@@ -61,17 +61,6 @@
       return this._estimates;
     };
 
-    // _getAverageAttendance(){
-    //   let averageAttendance = 0;
-    //   averageAttendance = this._attendance.reduce((sum = 0, item) => sum + item) / this._indexOfAttendance;
-    //   return averageAttendance;
-    // }
-
-    // _getAverageGrade(){
-    //   let averageGrade = 0;
-    //   averageGrade = this._estimates.reduce((sum = 0, item) => sum + item) / this._indexOfEstimates;
-    //   return averageGrade;
-    // }
 
     summary(){
       let averageGrade = 0;
