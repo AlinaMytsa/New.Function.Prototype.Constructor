@@ -63,7 +63,7 @@
 
     let result = null;
 
-    if (averageGrade > 9 && averageAttendance > 0.9){
+    if (averageGrade >= 9 && averageAttendance >= 0.9){
       result = bestGrade;
     }
     if (averageGrade > 9 || averageAttendance > 0.9){
@@ -76,6 +76,29 @@
   };
 
   let stud = new Student('john', 'smith', 2000);
+  stud.present();
+  stud.absent();
+  stud.absent();
+  stud.absent();
+  stud.absent();
+  stud.absent();
+  stud.absent();
+  stud.absent();
+  stud.absent();
+  stud.absent();
+
+  stud.getMark(2);
+  stud.getMark(2);
+  stud.getMark(2);
+  stud.getMark(2);
+  stud.getMark(2);
+  stud.getMark(2);
+  stud.getMark(2);
+  stud.getMark(2);
+  stud.getMark(2);
+  stud.getMark(10);
+
+  console.log(stud.summary());
   console.log(stud);
 }())
 
