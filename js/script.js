@@ -61,28 +61,42 @@
       return this._estimates;
     };
 
-    _getAverageAttendance(){
-      let averageAttendance = 0;
-      averageAttendance = this._attendance.reduce((sum = 0, item) => sum += item) / this._indexOfAttendance;
-      return averageAttendance;
-    }
+    // _getAverageAttendance(){
+    //   let averageAttendance = 0;
+    //   averageAttendance = this._attendance.reduce((sum = 0, item) => sum + item) / this._indexOfAttendance;
+    //   return averageAttendance;
+    // }
 
-    _getAverageGrade(){
-      let averageGrade = 0;
-      averageGrade = this._estimates.reduce((sum = 0, item) => sum += item) / this._indexOfEstimates;
-      return averageGrade;
-    }
+    // _getAverageGrade(){
+    //   let averageGrade = 0;
+    //   averageGrade = this._estimates.reduce((sum = 0, item) => sum + item) / this._indexOfEstimates;
+    //   return averageGrade;
+    // }
 
     summary(){
-      if (this._getAverageGrade > 9 && this._getAverageAttendance > 0.9){
-        console.log('Ути какой молодчинка!');
+      let averageGrade = 0;
+      averageGrade = this._estimates.reduce((sum = 0, item) => sum + item) / this._indexOfEstimates;
+
+      let averageAttendance = 0;
+      averageAttendance = this._attendance.reduce((sum = 0, item) => sum + item) / this._indexOfAttendance;
+
+
+      const bestGrade = 'Ути какой молодчинка!';
+      const normalGrade = 'Норм, но можно лучше';
+      const worstGrade = 'Редиска!';
+
+      let result = null;
+
+      if (averageGrade > 9 && averageAttendance > 0.9){
+        result = bestGrade;
       }
-      if (this._getAverageGrade > 9 || this._getAverageAttendance > 0.9){
-        console.log('Норм, но можно лучше');
+      if (averageGrade > 9 || averageAttendance > 0.9){
+        result = normalGrade;
       }
-      if (this._getAverageGrade < 9 && this._getAverageAttendance < 0.9){
-        console.log('Редиска!');
+      if (averageGrade < 9 && averageAttendance < 0.9){
+        result = worstGrade;
       }
+      return result
     };
 
 
@@ -91,7 +105,7 @@
   let student = new Student('alina', 'mytsa', 2000)
   student.present()
   student.present()
-  student.absent()
+  student.present()
   student.present()
   student.present()
   student.present()
@@ -101,20 +115,19 @@
   student.present()
   console.log(student._attendance);
 
-  student.getMark(5);
-  student.getMark(6);
   student.getMark(10);
-  student.getMark(3);
+  student.getMark(10);
+  student.getMark(9);
+  student.getMark(8);
+  student.getMark(10);
   student.getMark(10);
   student.getMark(2);
   student.getMark(4);
-  student.getMark(6);
-  student.getMark(10);
-  student.getMark(10);
+  student.getMark(2);
+  student.getMark(2);
   console.log(student._estimates);
 
-  console.log(student._getAverageGrade());
-  console.log(student)
+  console.log(student.summary())
 
 
 }())
